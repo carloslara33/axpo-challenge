@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import MuiDrawer from "@mui/material/Drawer";
 import { styled } from "@mui/material/styles";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -65,42 +67,39 @@ export default function Dashboard({
       <Divider />
       <List component="nav">
         <React.Fragment>
-          <ListItemButton>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Solar" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Gas" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Hydro" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Kinetic" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Thermal" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Real time information" />
-          </ListItemButton>
+          <Link to="/solar">
+            <ListItemButton>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Solar" />
+            </ListItemButton>
+          </Link>
+          <Link to="/gas">
+            <ListItemButton>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+
+              <ListItemText primary="Gas" />
+            </ListItemButton>
+          </Link>
+          <Link to="/hydro">
+            <ListItemButton>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Hydro" />
+            </ListItemButton>
+          </Link>
+          <Link to="/real-time">
+            <ListItemButton>
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Real time information" />
+            </ListItemButton>
+          </Link>
         </React.Fragment>
       </List>
     </StyledMuiDrawer>
