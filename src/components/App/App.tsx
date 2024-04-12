@@ -21,7 +21,7 @@ export default function App() {
             overflow: "auto",
           }}
         >
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Container maxWidth="lg" sx={{ my: 12 }}>
             <Routes>
               <Route path="/solar" element={<Solar />} />
               <Route path="/gas" element={<Gas />} />
