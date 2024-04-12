@@ -1,10 +1,10 @@
-import { producerCommon } from "./producerCommon";
+import { ProducerCommon } from "./producerCommon";
 
-type deliveryMethod = "pipeline" | "shipped";
+export type DeliveryMethod = "pipeline" | "shipped";
 
-export interface solarEnergyProducers extends producerCommon {
+export interface GasEnergyProducers extends ProducerCommon {
   capacity: number;
-  deliveryMethod: deliveryMethod;
+  deliveryMethod: DeliveryMethod;
   flexibilityOfSupply: boolean;
   emissionCredit: boolean;
   emissionPenalty: boolean;

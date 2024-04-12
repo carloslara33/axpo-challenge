@@ -1,4 +1,4 @@
-export interface producerCommon {
+export interface ProducerCommon {
   price: number;
   minQuantity: number;
   contractTerms: string;

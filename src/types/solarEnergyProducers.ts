@@ -1,7 +1,7 @@
 import { CountryCode } from "./locations";
-import { producerCommon } from "./producerCommon";
+import { ProducerCommon } from "./producerCommon";
 
-export interface solarEnergyProducers extends producerCommon {
+export interface SolarEnergyProducers extends ProducerCommon {
   capacity: number;
   location: CountryCode;
   outputPrediction: number;
