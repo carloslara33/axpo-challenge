@@ -1,7 +1,10 @@
-import { SolarEnergyProducers } from "../types/index";
+import { SolarEnergyOrder } from "../types/index";
 
-export const solarEnergyItems: SolarEnergyProducers[] = [
+export const solarEnergyItems: SolarEnergyOrder[] = [
   {
+    id: 1,
+    orderType: "buy",
+    status: "completed",
     capacity: 500,
     location: "DEU",
     outputPrediction: 480,
@@ -12,6 +15,9 @@ export const solarEnergyItems: SolarEnergyProducers[] = [
     paymentTerms: "30 days net",
   },
   {
+    id: 2,
+    orderType: "buy",
+    status: "completed",
     capacity: 750,
     location: "DEU",
     outputPrediction: 700,
@@ -21,6 +27,9 @@ export const solarEnergyItems: SolarEnergyProducers[] = [
     paymentTerms: "60 days net",
   },
   {
+    id: 3,
+    orderType: "buy",
+    status: "completed",
     capacity: 600,
     location: "BEL",
     outputPrediction: 550,
@@ -31,6 +40,9 @@ export const solarEnergyItems: SolarEnergyProducers[] = [
     paymentTerms: "45 days net",
   },
   {
+    id: 4,
+    orderType: "sell",
+    status: "completed",
     capacity: 450,
     location: "MLT",
     outputPrediction: 420,

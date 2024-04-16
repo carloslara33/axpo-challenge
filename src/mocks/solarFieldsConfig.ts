@@ -1,56 +1,53 @@
-import { FormField, SolarEnergyProducers, countries } from "../types/index.ts";
+import { RJSFSchema } from "@rjsf/utils";
+import { countries } from "./countries.ts";
 
-const solarPriceField: FormField<SolarEnergyProducers> = {
-  name: "capacity",
-  fieldType: "number",
-};
-
-const solarMinQuantityField: FormField<SolarEnergyProducers> = {
-  name: "minQuantity",
-  fieldType: "number",
-};
-
-const solarContractTermsField: FormField<SolarEnergyProducers> = {
-  name: "contractTerms",
-  fieldType: "textarea",
-};
-
-const solarPaymentTermsField: FormField<SolarEnergyProducers> = {
-  name: "paymentTerms",
-  fieldType: "textarea",
-};
-
-const solarCapacityField: FormField<SolarEnergyProducers> = {
-  name: "capacity",
-  fieldType: "number",
-};
-
-const solarLocationField: FormField<SolarEnergyProducers> = {
-  name: "location",
-  fieldType: "select",
-  extraData: {
-    source: "internal",
-    data: countries,
+export const solarSchema: RJSFSchema = {
+  type: "object",
+  definitions: {
+    Location: {
+      title: "Location",
+      type: "string",
+      anyOf: Object.keys(countries).map((k) => ({
+        type: "string",
+        enum: [k],
+        title: countries[k],
+      })),
+    },
   },
-};
+  properties: {
+    price: {
+      type: "number",
+      title: "Price",
+    },
+    capacity: {
+      type: "number",
+      title: "Capacity",
+    },
+    minQuantity: {
+      type: "number",
+      title: "Minimum Purchase Quantity",
+    },
+    contractTerms: {
+      type: "string",
+      title: "Contract Terms",
+    },
+    paymentTerms: {
+      type: "string",
+      title: "Payment Terms",
+    },
 
-const solaroOtputPredictionField: FormField<SolarEnergyProducers> = {
-  name: "outputPrediction",
-  fieldType: "number",
-};
+    location: {
+      $ref: "#/definitions/Location",
+      title: "Location",
+    },
+    outputPrediction: {
+      type: "number",
+      title: "Energy Output Prediction",
+    },
 
-const solarCertificationsField: FormField<SolarEnergyProducers> = {
-  name: "certifications",
-  fieldType: "text",
-};
-
-export const solarFieldsConfig: Record<string, FormField<any>> = {
-  solarPriceField,
-  solarMinQuantityField,
-  solarContractTermsField,
-  solarPaymentTermsField,
-  solarCapacityField,
-  solarLocationField,
-  solaroOtputPredictionField,
-  solarCertificationsField,
+    certifications: {
+      type: "number",
+      title: "Certifications",
+    },
+  },
 };

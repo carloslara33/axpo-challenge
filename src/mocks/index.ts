@@ -1,4 +1,5 @@
-import { solarFieldsConfig } from "./solarFieldsConfig";
-import { solarEnergyItems } from "./solarEnergyItems";
+import { solarSchema } from "./solarFieldsConfig.ts";
+import { solarEnergyItems } from "./solarEnergyItems.ts";
+import { countries } from "./countries.ts";
 
-export { solarEnergyItems, solarFieldsConfig };
+export { solarEnergyItems, solarSchema, countries };

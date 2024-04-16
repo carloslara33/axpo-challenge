@@ -1,4 +1,4 @@
-export interface FormField<T> {
+export default interface FormField<T> {
   name: keyof T;
   fieldType: "text" | "number" | "radio" | "textarea" | "select";
   extraData?: Record<string, any>;

@@ -1,8 +1,8 @@
-import { ProducerCommon } from "./producerCommon";
+import { ProducerCommon } from "./producerCommon.ts";
 
 export type DeliveryMethod = "pipeline" | "shipped";
 
-export interface GasEnergyProducers extends ProducerCommon {
+export default interface GasEnergyProducers extends ProducerCommon {
   capacity: number;
   deliveryMethod: DeliveryMethod;
   flexibilityOfSupply: boolean;

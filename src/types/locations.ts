@@ -1,32 +1,5 @@
-export const countries = {
-  DEU: "Germany",
-  AUT: "Austria",
-  BEL: "Belgium",
-  BGR: "Bulgaria",
-  CYP: "Cyprus",
-  HRV: "Croatia",
-  DNK: "Denmark",
-  ESP: "Spain",
-  EST: "Estonia",
-  FIN: "Finland",
-  FRA: "France",
-  GRC: "Greece",
-  HUN: "Hungary",
-  IRL: "Ireland",
-  ITA: "Italy",
-  LVA: "Latvia",
-  LTU: "Lithuania",
-  LUX: "Luxembourg",
-  MLT: "Malta",
-  NLD: "Netherlands",
-  POL: "Poland",
-  PRT: "Portugal",
-  CZE: "Czech Republic",
-  ROU: "Romania",
-  SVK: "Slovakia",
-  SVN: "Slovenia",
-  SWE: "Sweden",
-  GBR: "United Kingdom",
-};
+import { countries } from "../mocks/index.ts";
 
-export type CountryCode = keyof typeof countries;
+type CountryCode = keyof typeof countries;
+
+export default CountryCode;

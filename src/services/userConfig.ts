@@ -1,9 +1,9 @@
-import { solarFieldsConfig } from "../mocks/index.ts";
+import { solarSchema } from "../mocks/index.ts";
 
 export const getUserConfig = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(solarFieldsConfig);
+      resolve(solarSchema);
     }, 1500);
   });
 };

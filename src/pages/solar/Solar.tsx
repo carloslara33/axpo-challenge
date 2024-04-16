@@ -1,33 +1,62 @@
+import React, { useContext } from "react";
 import Paper from "@mui/material/Paper";
-import React from "react";
+import Form from "@rjsf/mui";
+import validator from "@rjsf/validator-ajv8";
+
+import { UserConfigContext } from "../../contexts/UserConfigContext.tsx";
 
 export default function Solar() {
+  const { solarSchema, isloading } = useContext(UserConfigContext);
+
+  const handleBuy = (ev) => {
+    console.log(ev.formData);
+  };
+
+  const handleSell = (ev) => {
+    console.log(ev.formData);
+  };
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "row",
-        gap: "2rem"
+        gap: "2rem",
       }}
     >
-      <Paper
-        sx={{
-          p: 4,
-          display: "flex",
-          flexDirection: "row"
-        }}
-      >
-        <div>test</div>
-      </Paper>
-      <Paper
-        sx={{
-          p: 4,
-          display: "flex",
-          flexDirection: "row"
-        }}
-      >
-        <div>test2</div>
-      </Paper>
+      {!isloading && solarSchema && (
+        <>
+          <Paper
+            sx={{
+              p: 4,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <h3>Buy Solar</h3>
+            <Form
+              schema={solarSchema}
+              validator={validator}
+              onSubmit={handleBuy}
+            ></Form>
+          </Paper>
+
+          <Paper
+            sx={{
+              p: 4,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <h3> Sell Soar</h3>
+            <Form
+              schema={solarSchema}
+              validator={validator}
+              onSubmit={handleSell}
+            ></Form>
+          </Paper>
+        </>
+      )}
     </div>
   );
 }

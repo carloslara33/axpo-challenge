@@ -1,6 +1,6 @@
-import { ProducerCommon } from "./producerCommon";
+import { ProducerCommon } from "./producerCommon.ts";
 
-export interface HydroEnergyProducers extends ProducerCommon {
+export default interface HydroEnergyProducers extends ProducerCommon {
   capacity: number;
   waterFlowRate: number;
   outputPrediction: number;

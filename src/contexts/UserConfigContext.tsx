@@ -2,16 +2,16 @@ import React, { createContext, useState, useEffect } from "react";
 import { getUserConfig } from "../services/userConfig.ts";
 import { FormField } from "../types/index.ts";
 
-export const UserConfigContext = createContext({});
-
 type State = {
   userConfig?: Record<string, any>;
-  solarConfig?: Record<string, any>;
+  solarSchema?: Record<string, any>;
   isLoading: boolean;
 };
 
+export const UserConfigContext = createContext({});
+
 export const UserConfigProvider = ({ children }) => {
-  const [{ userConfig, solarConfig, isLoading }, setState] = useState<State>({
+  const [{ userConfig, solarSchema, isLoading }, setState] = useState<State>({
     isLoading: false,
   });
 
@@ -22,15 +22,15 @@ export const UserConfigProvider = ({ children }) => {
     }));
 
     try {
-      const config = await getUserConfig();
+      const config = (await getUserConfig()) as Record<string, FormField<any>>;
       setState((prevState) => ({
         ...prevState,
-        userConfig: config as Record<string, FormField<any>>,
+        solarSchema: config,
       }));
     } catch (error) {
       console.error("Failed to fetch user", error);
     }
-    
+
     setState((prevState) => ({
       ...prevState,
       isLoading: false,
@@ -42,7 +42,7 @@ export const UserConfigProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserConfigContext.Provider value={{ userConfig, solarConfig, isLoading }}>
+    <UserConfigContext.Provider value={{ userConfig, solarSchema, isLoading }}>
       {children}
     </UserConfigContext.Provider>
   );
