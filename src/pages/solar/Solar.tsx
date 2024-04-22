@@ -4,15 +4,19 @@ import Form from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv8";
 
 import { UserConfigContext } from "../../contexts/UserConfigContext.tsx";
+import { OrdersContext } from "../../contexts/OrdersContext.tsx";
 
 export default function Solar() {
   const { solarSchema, isloading } = useContext(UserConfigContext);
+  const { addOrder } = useContext(OrdersContext);
 
   const handleBuy = (ev) => {
+    addOrder(ev.formData);
     console.log(ev.formData);
   };
 
   const handleSell = (ev) => {
+    addOrder(ev.formData);
     console.log(ev.formData);
   };
 

@@ -9,7 +9,7 @@ export default interface SolarEnergyProducers extends ProducerCommon {
 }
 
 export interface SolarEnergyOrder extends SolarEnergyProducers {
-  id: number;
+  id?: number;
   orderType: "buy" | "sell";
   status: "pending" | "processing" | "completed";
 }

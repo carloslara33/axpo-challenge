@@ -22,10 +22,13 @@ export const UserConfigProvider = ({ children }) => {
     }));
 
     try {
-      const config = (await getUserConfig()) as Record<string, FormField<any>>;
+      const { solarSchema } = (await getUserConfig()) as Record<
+        string,
+        FormField<any>
+      >;
       setState((prevState) => ({
         ...prevState,
-        solarSchema: config,
+        solarSchema,
       }));
     } catch (error) {
       console.error("Failed to fetch user", error);

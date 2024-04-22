@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from "react";
+
+import { OrdersContext } from "../../contexts/OrdersContext.tsx";
 
 export default function RealTime() {
-    return (
-        <div>test</div>
-    )
+  const { orders } = useContext(OrdersContext);
+
+  return <div>{orders ? JSON.stringify(orders) : "Loading...."}</div>;
 }
