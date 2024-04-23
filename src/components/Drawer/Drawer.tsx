@@ -75,23 +75,6 @@ export default function Dashboard({
               <ListItemText primary="Solar" />
             </ListItemButton>
           </Link>
-          <Link to="/gas">
-            <ListItemButton>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-
-              <ListItemText primary="Gas" />
-            </ListItemButton>
-          </Link>
-          <Link to="/hydro">
-            <ListItemButton>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Hydro" />
-            </ListItemButton>
-          </Link>
           <Link to="/real-time">
             <ListItemButton>
               <ListItemIcon>
