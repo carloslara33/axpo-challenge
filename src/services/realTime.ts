@@ -1,6 +1,6 @@
 import { BehaviorSubject } from "rxjs";
 
-import { solarEnergyItems } from "../mocks/index.ts";
+import { solarEnergyItems, generateMock } from "../mocks/index.ts";
 import { SolarEnergyOrder } from "../types/index.ts";
 
 export const MockWebSocket = (function () {
@@ -8,6 +8,11 @@ export const MockWebSocket = (function () {
   function init() {
     const orders = new BehaviorSubject(solarEnergyItems);
     const orders$ = orders.asObservable();
+
+    const getNewId = () => {
+      const values = orders.getValue();
+      return Number(values[values.length - 1].id) + 1;
+    };
 
     const updateOrder = (order: SolarEnergyOrder) => {
       const currentOrders = orders.getValue();
@@ -19,6 +24,7 @@ export const MockWebSocket = (function () {
     };
 
     const addOrder = (order: SolarEnergyOrder) => {
+      order.id = getNewId();
       orders.next(orders.getValue().concat([order]));
     };
 
@@ -29,6 +35,11 @@ export const MockWebSocket = (function () {
     const getOrdersObservable = () => {
       return orders$;
     };
+
+    // simulates the interaction of other users
+    setInterval(() => {
+      addOrder(generateMock());
+    }, 5000);
 
     return {
       updateOrder,

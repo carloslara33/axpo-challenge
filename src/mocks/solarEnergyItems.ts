@@ -1,6 +1,22 @@
 import { SolarEnergyOrder } from "../types/index";
 import { energyTypes } from "../types/producerCommon.ts";
 
+export const generateMock = () => {
+  return {
+    energyType: energyTypes.solar,
+    orderType: "buy",
+    status: "pending",
+    capacity: Math.random() * 1000,
+    location: "DEU",
+    outputPrediction: Math.random() * 1000,
+    certifications: ["ISO-14001", "LEED"],
+    price: Math.random() * 10,
+    minQuantity: Math.random() * 100,
+    contractTerms: "12 months, 5% penalty for early termination",
+    paymentTerms: "30 days net",
+  } as SolarEnergyOrder;
+};
+
 export const solarEnergyItems: SolarEnergyOrder[] = [
   {
     id: 1,

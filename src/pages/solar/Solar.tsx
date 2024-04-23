@@ -5,18 +5,35 @@ import validator from "@rjsf/validator-ajv8";
 
 import { UserConfigContext } from "../../contexts/UserConfigContext.tsx";
 import { OrdersContext } from "../../contexts/OrdersContext.tsx";
+import { energyTypes } from "../../types/producerCommon.ts";
+import { SolarEnergyOrder } from "../../types/solarEnergyProducers.ts";
+
+const defaultOrder: Partial<SolarEnergyOrder> = {
+  energyType: energyTypes.solar,
+  status: "pending",
+};
+
+const defaultBuyOrder: Partial<SolarEnergyOrder> = {
+  ...defaultOrder,
+  orderType: "buy",
+};
+
+const defaultSellOrder: Partial<SolarEnergyOrder> = {
+  ...defaultOrder,
+  orderType: "sell",
+};
 
 export default function Solar() {
   const { solarSchema, isloading } = useContext(UserConfigContext);
   const { addOrder } = useContext(OrdersContext);
 
   const handleBuy = (ev) => {
-    addOrder(ev.formData);
+    addOrder({ ...defaultBuyOrder, ...ev.formData });
     console.log(ev.formData);
   };
 
   const handleSell = (ev) => {
-    addOrder(ev.formData);
+    addOrder({ ...defaultSellOrder, ...ev.formData });
     console.log(ev.formData);
   };
 
