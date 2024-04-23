@@ -29,12 +29,10 @@ export default function Solar() {
 
   const handleBuy = (ev) => {
     addOrder({ ...defaultBuyOrder, ...ev.formData });
-    console.log(ev.formData);
   };
 
   const handleSell = (ev) => {
     addOrder({ ...defaultSellOrder, ...ev.formData });
-    console.log(ev.formData);
   };
 
   return (
