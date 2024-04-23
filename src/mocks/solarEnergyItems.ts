@@ -1,10 +1,12 @@
 import { SolarEnergyOrder } from "../types/index";
+import { energyTypes } from "../types/producerCommon.ts";
 
 export const solarEnergyItems: SolarEnergyOrder[] = [
   {
     id: 1,
+    energyType: energyTypes.solar,
     orderType: "buy",
-    status: "completed",
+    status: "pending",
     capacity: 500,
     location: "DEU",
     outputPrediction: 480,
@@ -16,6 +18,7 @@ export const solarEnergyItems: SolarEnergyOrder[] = [
   },
   {
     id: 2,
+    energyType: energyTypes.solar,
     orderType: "buy",
     status: "completed",
     capacity: 750,
@@ -28,6 +31,7 @@ export const solarEnergyItems: SolarEnergyOrder[] = [
   },
   {
     id: 3,
+    energyType: energyTypes.solar,
     orderType: "buy",
     status: "completed",
     capacity: 600,
@@ -41,6 +45,7 @@ export const solarEnergyItems: SolarEnergyOrder[] = [
   },
   {
     id: 4,
+    energyType: energyTypes.solar,
     orderType: "sell",
     status: "completed",
     capacity: 450,

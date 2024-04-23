@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ag-grid-community/client-side-row-model": "^31.2.1",
     "@ag-grid-community/core": "^31.2.1",
     "@ag-grid-community/react": "^31.2.1",
     "@emotion/react": "^11.11.4",
@@ -10,7 +11,6 @@
     "@fontsource/roboto": "^5.0.12",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
-    "@mui/x-charts": "^7.1.1",
     "@rjsf/core": "^5.18.2",
     "@rjsf/mui": "^5.18.2",
     "@rjsf/utils": "^5.18.2",

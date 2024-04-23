@@ -1,5 +1,5 @@
 import CountryCode from "./locations.ts";
-import { ProducerCommon } from "./producerCommon.ts";
+import { ProducerCommon, energyTypes } from "./producerCommon.ts";
 
 export default interface SolarEnergyProducers extends ProducerCommon {
   capacity: number;
@@ -9,7 +9,7 @@ export default interface SolarEnergyProducers extends ProducerCommon {
 }
 
 export interface SolarEnergyOrder extends SolarEnergyProducers {
-  id?: number;
+  energyType: energyTypes.solar;
   orderType: "buy" | "sell";
   status: "pending" | "processing" | "completed";
 }

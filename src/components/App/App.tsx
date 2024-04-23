@@ -11,8 +11,8 @@ import { OrdersProvider } from "../../contexts/OrdersContext.tsx";
 
 export default function App() {
   return (
-    <UserConfigProvider>
-      <OrdersProvider>
+    <OrdersProvider>
+      <UserConfigProvider>
         <Router>
           <Box sx={{ display: "flex" }}>
             <CssBaseline />
@@ -37,7 +37,7 @@ export default function App() {
             </Box>
           </Box>
         </Router>
-      </OrdersProvider>
-    </UserConfigProvider>
+      </UserConfigProvider>
+    </OrdersProvider>
   );
 }
